@@ -11,7 +11,14 @@ const Board = ({ board, clickHandler }: IBoard) => {
   return (
     <div className="board">
       {board.map((icon, idx) => {
-        return <Box icon={icon} clickHandler={() => clickHandler(idx)} />
+        return (
+          <Box
+            key={idx}
+            icon={icon}
+            idx={idx}
+            clickHandler={() => clickHandler(idx)}
+          />
+        )
       })}
     </div>
   )
