@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
-import Board from './components/Board'
-import ResetButton from './components/ResetButton'
-import ScoreBoard from './components/ScoreBoard'
+import Board from './components/Board/Board'
+import ResetButton from './components/ResetButton/ResetButton'
+import ScoreBoard from './components/ScoreBoard/ScoreBoard'
 
 const App: React.FC = () => {
   const [board, setBoard] = useState(Array(9).fill(null))

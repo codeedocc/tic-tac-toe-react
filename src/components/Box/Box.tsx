@@ -3,8 +3,8 @@ import './Box.css'
 
 interface IBox {
   icon: string
-  clickHandler: (idx: number) => void
   idx: number
+  clickHandler: (idx: number) => void
 }
 
 const Box: React.FC<IBox> = ({ icon, clickHandler, idx }) => {
