@@ -1,5 +1,6 @@
 import React from 'react'
 import Box from './Box'
+import './Board.css'
 
 interface IBoard {
   board: string[]
@@ -8,7 +9,7 @@ interface IBoard {
 
 const Board = ({ board, clickHandler }: IBoard) => {
   return (
-    <div>
+    <div className="board">
       {board.map((icon, idx) => {
         return <Box icon={icon} clickHandler={() => clickHandler(idx)} />
       })}
