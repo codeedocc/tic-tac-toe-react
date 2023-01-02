@@ -2,16 +2,15 @@ import React from 'react'
 import './Box.css'
 
 interface IBox {
-  clickHandler: () => void
+  icon: string
+  clickHandler: (idx: number) => void
 }
 
-const Box = ({ clickHandler }: IBox) => {
-  const value = 'X'
-
-  const style = value === 'X' ? 'box x' : 'box o'
+const Box = ({ icon, clickHandler }: IBox) => {
+  const style = icon === 'X' ? 'box x' : 'box o'
   return (
-    <button className={style} onClick={clickHandler}>
-      {value}
+    <button className={style} onClick={() => clickHandler(1)}>
+      {icon}
     </button>
   )
 }
