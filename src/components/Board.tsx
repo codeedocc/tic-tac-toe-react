@@ -16,7 +16,7 @@ const Board = ({ board, clickHandler }: IBoard) => {
             key={idx}
             icon={icon}
             idx={idx}
-            clickHandler={() => clickHandler(idx)}
+            clickHandler={() => icon === null && clickHandler(idx)}
           />
         )
       })}
