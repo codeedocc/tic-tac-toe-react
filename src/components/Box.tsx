@@ -7,7 +7,7 @@ interface IBox {
   idx: number
 }
 
-const Box = ({ icon, clickHandler, idx }: IBox) => {
+const Box: React.FC<IBox> = ({ icon, clickHandler, idx }) => {
   const style = icon === 'X' ? 'box x' : 'box o'
   return (
     <button className={style} onClick={() => clickHandler(idx)}>

@@ -9,7 +9,7 @@ interface IScoreBoard {
   xPlaying: boolean
 }
 
-const ScoreBoard = ({ scores, xPlaying }: IScoreBoard) => {
+const ScoreBoard: React.FC<IScoreBoard> = ({ scores, xPlaying }) => {
   const { xScore, oScore } = scores
 
   return (

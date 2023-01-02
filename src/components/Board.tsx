@@ -7,7 +7,7 @@ interface IBoard {
   clickHandler: (idx: number) => void
 }
 
-const Board = ({ board, clickHandler }: IBoard) => {
+const Board: React.FC<IBoard> = ({ board, clickHandler }) => {
   return (
     <div className="board">
       {board.map((icon, idx) => {
