@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css'
 import Board from './components/Board/Board'
 import ResetButton from './components/ResetButton/ResetButton'
 import ScoreBoard from './components/ScoreBoard/ScoreBoard'
+
+const savedX = JSON.parse(localStorage.getItem('X') || '0')
+const savedO = JSON.parse(localStorage.getItem('O') || '0')
 
 const App: React.FC = () => {
   const [board, setBoard] = useState(Array(9).fill(null))
   const [xPlaying, setXPlaying] = useState(true)
   const [scores, setScores] = useState({ xScore: 0, oScore: 0 })
   const [gameOver, setGameOver] = useState(false)
+  const [x, setX] = useState(savedX)
+  const [o, setO] = useState(savedO)
+
+  useEffect(() => {
+    localStorage.setItem('X', x)
+    localStorage.setItem('O', o)
+  }, [scores.xScore, scores.oScore])
 
   const WIN_CONDITIONS = [
     [0, 1, 2],
@@ -37,10 +47,12 @@ const App: React.FC = () => {
         let { oScore } = scores
         oScore += 1
         setScores({ ...scores, oScore })
+        setO(Number(o) + 1)
       } else {
         let { xScore } = scores
         xScore += 1
         setScores({ ...scores, xScore })
+        setX(Number(x) + 1)
       }
     }
 
@@ -66,7 +78,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <ScoreBoard scores={scores} xPlaying={xPlaying} />
+      <ScoreBoard scores={scores} xPlaying={xPlaying} x={x} o={o} />
       <Board
         board={board}
         clickHandler={gameOver ? resetBoard : clickHandler}

@@ -7,19 +7,17 @@ interface IScoreBoard {
     oScore: number
   }
   xPlaying: boolean
+  x: number | string
+  o: number | string
 }
 
-const ScoreBoard: React.FC<IScoreBoard> = ({ scores, xPlaying }) => {
-  const { xScore, oScore } = scores
-
+const ScoreBoard: React.FC<IScoreBoard> = ({ xPlaying, x, o }) => {
   return (
     <div className="scoreBoard">
       <span className={`score x-score ${!xPlaying && 'inactive'}`}>
-        X - {xScore}
+        X - {x}
       </span>
-      <span className={`score o-score ${xPlaying && 'inactive'}`}>
-        O - {oScore}
-      </span>
+      <span className={`score o-score ${xPlaying && 'inactive'}`}>O - {o}</span>
     </div>
   )
 }
