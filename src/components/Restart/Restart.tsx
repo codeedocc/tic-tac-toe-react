@@ -1,5 +1,5 @@
 import React from 'react'
-import './ResetButton.css'
+import './Restart.css'
 
 interface IResetButton {
   resetBoard: () => void

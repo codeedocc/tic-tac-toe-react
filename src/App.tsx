@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
 import Board from './components/Board/Board'
-import ResetButton from './components/ResetButton/ResetButton'
+import ResetScore from './components/ResetScore/ResetScore'
+import Restart from './components/Restart/Restart'
 import ScoreBoard from './components/ScoreBoard/ScoreBoard'
 
 const savedX = JSON.parse(localStorage.getItem('X') || '0')
@@ -76,6 +77,12 @@ const App: React.FC = () => {
     setBoard(Array(9).fill(null))
   }
 
+  const resetScore = () => {
+    setX(0)
+    setO(0)
+    localStorage.clear()
+  }
+
   return (
     <div className="App">
       <ScoreBoard scores={scores} xPlaying={xPlaying} x={x} o={o} />
@@ -83,7 +90,8 @@ const App: React.FC = () => {
         board={board}
         clickHandler={gameOver ? resetBoard : clickHandler}
       />
-      <ResetButton resetBoard={resetBoard} />
+      <Restart resetBoard={resetBoard} />
+      <ResetScore resetScore={resetScore} />
     </div>
   )
 }
