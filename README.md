@@ -1,1 +1,1 @@
-Проект: https://codeedocc.github.io/tic-tac-toe-react/
+Проект: https://codeedocc.github.io/tic-tac-toe-react/ 
